@@ -11,12 +11,13 @@ local opts = {
   -- 默认运行程序的程序名为main，所以写cmakelists时要注意
   default_run_path = "../bin/",
   default_makefile_output_path = "../build/",
+  default_program_name = "main",
 }
 opts.default_build_cmd = 'cmake -S ' .. opts.default_build_path .. '-B ' .. opts.default_makefile_output_path
 -- 运行make
 opts.default_make_cmd = 'make -C ' .. opts.default_makefile_output_path
 -- 默认执行程序
-opts.default_run_program = opts.default_run_path .. "/main"
+opts.default_run_program = opts.default_run_path .. opts.default_program_name
 
 local toggle_terminal = function()
   local term_bufnr = nil
@@ -85,7 +86,7 @@ function M.compile()
   toggle_terminal()
   check_dir_exist(opts.default_makefile_output_path)
   send_to_terminal(opts.default_build_cmd)
-  send_to_terminal(opts.default_build_cmd)
+  send_to_terminal(opts.default_make_cmd)
   toggle_nvim()
 end
 
