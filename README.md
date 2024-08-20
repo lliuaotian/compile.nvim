@@ -30,6 +30,9 @@ require("compile").setup()
 
 This program assumes that your project structure is the same as mine. You should specify in your CMakeLists file that the output of the `cmake` command should be placed in the `build` directory. The `compile.nvim` plugin will then automatically run `make` in that directory. Therefore, it is essential that you write your CMakeLists file correctly and ensure that you invoke this plugin while editing files in the `src` folder.
 
+### Video
+https://github.com/user-attachments/assets/88724a8f-1270-49b8-bc0e-0d9e7e00dcdf
+
 ### Functions Provided by the Plugin
 
 - **`run`**: This function only runs the compiled executable.
