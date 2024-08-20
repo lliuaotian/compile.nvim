@@ -13,7 +13,7 @@ local opts = {
   default_makefile_output_path = "../build/",
   default_program_name = "main",
 }
-opts.default_build_cmd = 'cmake -S ' .. opts.default_build_path .. '-B ' .. opts.default_makefile_output_path
+opts.default_build_cmd = 'cmake -S ' .. opts.default_build_path .. ' -B ' .. opts.default_makefile_output_path
 -- 运行make
 opts.default_make_cmd = 'make -C ' .. opts.default_makefile_output_path
 -- 默认执行程序
