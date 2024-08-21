@@ -83,9 +83,9 @@ local check_dir_exist = function(dir)
 end
 
 function M.compile()
-  -- 编译前先清空命令行
-  vim.fn.chansend(vim.b.terminal_job_id, "clear" .. '\n')
   toggle_terminal()
+  -- 编译前先清空命令行
+  vim.fn.chansend(vim.b.terminal_job_id, 'clear' .. '\n')
   check_dir_exist(opts.default_makefile_output_path)
   send_to_terminal(opts.default_build_cmd)
   send_to_terminal(opts.default_make_cmd)
@@ -93,18 +93,18 @@ function M.compile()
 end
 
 function M.run()
-  -- 运行前先清空命令行
-  vim.fn.chansend(vim.b.terminal_job_id, "clear" .. '\n')
   toggle_terminal()
+  -- 运行前先清空命令行
+  vim.fn.chansend(vim.b.terminal_job_id, 'clear' .. '\n')
   check_dir_exist(opts.default_run_path)
   send_to_terminal(opts.default_run_program)
   toggle_nvim()
 end
 
 function M.compile_and_run()
-  -- 运行前先清空命令行
-  vim.fn.chansend(vim.b.terminal_job_id, "clear" .. '\n')
   toggle_terminal()
+  -- 运行前先清空命令行
+  vim.fn.chansend(vim.b.terminal_job_id, 'clear' .. '\n')
   check_dir_exist(opts.default_makefile_output_path)
   check_dir_exist(opts.default_run_path)
   send_to_terminal(opts.default_build_cmd)
