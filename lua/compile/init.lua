@@ -3,7 +3,7 @@ local M = {}
 local opts = {
   -- default options
   -- split window width
-  split_width = 40, 
+  split_width = 40,
   -- split default direction
   split_dir = 'right',
   -- 默认调用这个插件是在src路径下，所以cmakelists.txt就在上层目录
@@ -83,6 +83,8 @@ local check_dir_exist = function(dir)
 end
 
 function M.compile()
+  -- 编译前先清空命令行
+  vim.fn.chansend(vim.b.terminal_job_id, "clear" .. '\n')
   toggle_terminal()
   check_dir_exist(opts.default_makefile_output_path)
   send_to_terminal(opts.default_build_cmd)
@@ -91,6 +93,8 @@ function M.compile()
 end
 
 function M.run()
+  -- 运行前先清空命令行
+  vim.fn.chansend(vim.b.terminal_job_id, "clear" .. '\n')
   toggle_terminal()
   check_dir_exist(opts.default_run_path)
   send_to_terminal(opts.default_run_program)
@@ -98,6 +102,8 @@ function M.run()
 end
 
 function M.compile_and_run()
+  -- 运行前先清空命令行
+  vim.fn.chansend(vim.b.terminal_job_id, "clear" .. '\n')
   toggle_terminal()
   check_dir_exist(opts.default_makefile_output_path)
   check_dir_exist(opts.default_run_path)
